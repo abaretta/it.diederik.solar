@@ -1,0 +1,107 @@
+{
+  "id": "it.diederik.solar",
+  "name": {
+    "en": "Solar Panels"
+  },
+  "description": {
+    "en": "PV production tracker for Homey"
+  },
+  "version": "1.4.2",
+  "compatibility": "0.x || 1.x",
+  "author": {
+    "name": "Diederik Bakker",
+    "email": "d@iederik.nl"
+  },
+  "images": {
+    "large": "./assets/images/large.jpg",
+    "small": "./assets/images/small.jpg"
+  },
+  "category": "energy",
+  "capabilities": {
+          "measure_peak": {
+            "type": "number",
+            "title": {
+                "en": "Peak",
+                "nl": "Piek"
+            },
+            "getable": true,
+            "setable": false,
+            "units": {"en": "W"},
+            "decimals": 2,
+            "chartType": "spline"
+		},
+          "measure_month": {
+            "type": "number",
+            "title": {
+                "en": "Month",
+                "nl": "Maand"
+            },
+            "getable": true,
+            "setable": false,
+            "units": {"en": "kWh"},
+            "decimals": 2,
+            "chartType": "spline"
+		},
+          "measure_year": {
+            "type": "number",
+            "title": {
+                "en": "Year",
+                "nl": "Jaar"
+            },
+            "getable": true,
+            "setable": false,
+            "units": {"en": "kWh"},
+            "decimals": 2,
+            "chartType": "spline"
+		}
+             },
+  "drivers": [
+    {
+      "id": "pvoutput",
+      "name": {
+        "en": "PVOutput",
+        "nl": "PVOutput"
+      },
+      "pair": [
+        {
+          "id": "pair"
+        }
+      ],
+      "images": {
+        "large": "./drivers/pvoutput/assets/images/large.jpg",
+        "small": "./drivers/pvoutput/assets/images/small.jpg"
+      },
+      "class": "sensor",
+      "capabilities": ["measure_power", "measure_peak", "measure_month", "measure_year", "meter_power"],
+                        "mobile": {
+                   "components": [
+                      {
+                                "id": "icon"
+                         }, {
+                                "id": "sensor",
+                                "capabilities": [
+                                "measure_power",
+                                "measure_peak",
+                                "measure_month",
+                                "measure_year"
+                                ],
+                  "options":{  
+                     "icons":{  
+                        "measure_peak":"./drivers/pvoutput/assets/peak-solar.svg",
+                        "measure_month":"./drivers/pvoutput/assets/plug-energy.svg",
+                        "measure_year":"./drivers/pvoutput/assets/plug-energy.svg"
+                     }
+                  }
+               },
+               {  
+                  "id":"sensor",
+                  "capabilities":[  
+                     "meter_power"
+                  ]
+               }
+
+           ]
+	}
+    }
+  ]
+}
